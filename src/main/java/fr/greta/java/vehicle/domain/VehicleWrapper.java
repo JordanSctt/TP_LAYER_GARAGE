@@ -2,7 +2,20 @@ package fr.greta.java.vehicle.domain;
 
 import fr.greta.java.vehicle.persistence.VehicleEntity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VehicleWrapper {
+
+
+
+    public List<Vehicle> toEntities(List<VehicleEntity> entities) {
+        List<Vehicle> models = new ArrayList<>();
+        for (VehicleEntity entity : entities) {
+            models.add(toEntity(entity));
+        }
+        return models;
+    }
 
     public VehicleEntity toEntity(Vehicle model) {
         VehicleEntity entity = new VehicleEntity();

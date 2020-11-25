@@ -1,9 +1,12 @@
 package fr.greta.java.vehicle.domain;
 
 
+import fr.greta.java.box.domain.Box;
 import fr.greta.java.generic.exception.RepositoryException;
 import fr.greta.java.generic.exception.ServiceException;
 import fr.greta.java.vehicle.persistence.VehicleRepository;
+
+import java.util.List;
 
 public class VehicleService {
 
@@ -19,6 +22,14 @@ public class VehicleService {
         }
     }
 
+    public List<Vehicle> findAll() throws ServiceException {
+        try {
+            return wrapper.toEntities(repository.findAll());
+        } catch (RepositoryException e) {
+            throw new ServiceException(e);
+        }
+    }
+
     public Vehicle create(Vehicle vehicle) throws ServiceException {
     	if(vehicle.brandIsValid() && vehicle.immatIsValid()) {
     		try {
@@ -29,6 +40,8 @@ public class VehicleService {
     	}
     	throw new ServiceException("La marque et l'immatriculation du véhicule ne peuvent pas être vide.");
     }
+
+
 
 
 

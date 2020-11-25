@@ -49,7 +49,7 @@
             </c:forEach>
           </tbody>
         </table>
-
+<!--
         <h2>Les véhicules enregistrés</h2>
         <table class="table">
           <thead>
@@ -61,7 +61,7 @@
             </tr>
           </thead>
           <tbody>
-            <c:forEach items="${box.vehicleBrand}" var="vehicule">
+            <c:forEach items="${requestScope.Vehicles}" var="vehicule">
                 <tr>
                     <td><c:out value="${box.vehicleBrand}" /></td>
                     <td><c:out value="${box.vehicleImmatriculation}" /></td>
@@ -71,5 +71,6 @@
             </c:forEach>
           </tbody>
         </table>
+-->
     </body>
 </html>

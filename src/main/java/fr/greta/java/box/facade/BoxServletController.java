@@ -3,6 +3,7 @@ package fr.greta.java.box.facade;
 import fr.greta.java.generic.exception.ServiceException;
 import fr.greta.java.box.domain.Box;
 import fr.greta.java.box.domain.BoxService;
+import fr.greta.java.vehicle.domain.Vehicle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
