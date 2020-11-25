@@ -28,7 +28,7 @@
              </c:choose>
            </div>
         </c:if>
-        <h2>Les boxes</h2>
+        <h2>Etats des boxes</h2>
         <table class="table">
           <thead>
             <tr>
@@ -45,6 +45,28 @@
                     <td><c:out value="${box.vehicleBrand}" /></td>
                     <td><c:out value="${box.vehicleImmatriculation}" /></td>
                     <td><a href="${pageContext.request.contextPath}/box/affect?box_id=<c:out value="${ box.id }" />"/>affecter<a/></td>
+                </tr>
+            </c:forEach>
+          </tbody>
+        </table>
+
+        <h2>Les véhicules enregistrés</h2>
+        <table class="table">
+          <thead>
+            <tr>              
+              <th scope="col">Véhicules</th>
+              <th scope="col">Immatriculation</th>
+              <th scope="col">Proprietaire</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <c:forEach items="${box.vehicleBrand}" var="vehicule">
+                <tr>
+                    <td><c:out value="${box.vehicleBrand}" /></td>
+                    <td><c:out value="${box.vehicleImmatriculation}" /></td>
+                    <td></td>
+                    <td><a href="#" />"/>Supprimer<a/></td>
                 </tr>
             </c:forEach>
           </tbody>
