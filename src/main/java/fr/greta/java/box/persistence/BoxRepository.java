@@ -28,7 +28,7 @@ public class BoxRepository {
         ResultSet resultSet = null;
         try {
             conn = connectionFactory.create();
-            stmt = conn.prepareStatement(SELECT_REQUEST);
+            stmt = conn.prepareStatement(ORDER_BY);
             resultSet = stmt.executeQuery();
 
             List<BoxEntity> list = new ArrayList<>();
