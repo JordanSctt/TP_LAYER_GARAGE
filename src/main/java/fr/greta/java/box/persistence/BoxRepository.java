@@ -14,7 +14,7 @@ import java.util.List;
 public class BoxRepository {
 
     private static final String SELECT_REQUEST = "SELECT id, label, secret_key, vehicle_id FROM box";
-    private static final String ORDER_BY = " ORDER BY label";
+    private static final String ORDER_BY = SELECT_REQUEST + " ORDER BY label";
     private static final String WHERE_ID = " WHERE id = ?";
 
     private static final String SELECT_REQUEST_WHERE_ID = SELECT_REQUEST + WHERE_ID;

@@ -8,7 +8,7 @@ public class VehicleWrapper {
         VehicleEntity entity = new VehicleEntity();
         entity.setId(model.getId());
         entity.setBrand(model.getBrand());
-        entity.setBrand(model.getImmatriculation());
+        entity.setImmatriculation(model.getImmatriculation());
         return entity;
     }
 

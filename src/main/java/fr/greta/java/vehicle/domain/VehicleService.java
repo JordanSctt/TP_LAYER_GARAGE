@@ -8,8 +8,8 @@ import fr.greta.java.vehicle.persistence.VehicleRepository;
 public class VehicleService {
 
     private VehicleRepository repository = new VehicleRepository();
-
     private VehicleWrapper wrapper = new VehicleWrapper();
+
 
     public Vehicle findById(int id) throws ServiceException {
         try {
