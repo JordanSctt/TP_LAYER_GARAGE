@@ -6,6 +6,7 @@ public class BoxDTO {
     private String label;
     private String vehicleBrand;
     private String vehicleImmatriculation;
+    private String userNom;
 
     //-----------------------------------------------
     public void setId(int id) {
@@ -38,5 +39,13 @@ public class BoxDTO {
 
     public void setVehicleImmatriculation(String vehicleImmatriculation) {
         this.vehicleImmatriculation = vehicleImmatriculation;
+    }
+    //----------------------------------------------
+    public String getUserNom() {
+        return userNom;
+    }
+
+    public void setUserNom(String userNom) {
+        this.userNom = userNom;
     }
 }
