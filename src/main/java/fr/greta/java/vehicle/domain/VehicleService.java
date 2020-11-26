@@ -1,7 +1,6 @@
 package fr.greta.java.vehicle.domain;
 
 
-import fr.greta.java.box.domain.Box;
 import fr.greta.java.generic.exception.RepositoryException;
 import fr.greta.java.generic.exception.ServiceException;
 import fr.greta.java.user.domain.UserService;
