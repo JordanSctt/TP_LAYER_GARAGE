@@ -4,6 +4,7 @@ package fr.greta.java.vehicle.domain;
 import fr.greta.java.box.domain.Box;
 import fr.greta.java.generic.exception.RepositoryException;
 import fr.greta.java.generic.exception.ServiceException;
+import fr.greta.java.user.domain.UserService;
 import fr.greta.java.vehicle.persistence.VehicleRepository;
 
 import java.util.List;
@@ -12,11 +13,16 @@ public class VehicleService {
 
     private VehicleRepository repository = new VehicleRepository();
     private VehicleWrapper wrapper = new VehicleWrapper();
+    private UserService userService = new UserService();
 
 
-    public Vehicle findById(int id) throws ServiceException {
+    public Vehicle findByIdWithUser(int id) throws ServiceException {
         try {
-            return wrapper.fromEntity(repository.findById(id));
+            Vehicle vehicle = wrapper.fromEntity(repository.findById(id));
+            if (vehicle.getUser() != null) {
+                vehicle.setUser(userService.findById(vehicle.getUser().getId()));
+            }
+            return vehicle;
         } catch (RepositoryException e) {
             throw new ServiceException(e);
         }

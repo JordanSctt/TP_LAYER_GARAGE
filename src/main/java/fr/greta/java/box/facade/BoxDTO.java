@@ -7,6 +7,7 @@ public class BoxDTO {
     private String vehicleBrand;
     private String vehicleImmatriculation;
     private String userNom;
+    private String userEmail;
 
     //-----------------------------------------------
     public void setId(int id) {
@@ -47,5 +48,13 @@ public class BoxDTO {
 
     public void setUserNom(String userNom) {
         this.userNom = userNom;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

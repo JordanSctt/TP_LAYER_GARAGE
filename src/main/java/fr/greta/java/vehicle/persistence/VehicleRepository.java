@@ -1,6 +1,7 @@
 package fr.greta.java.vehicle.persistence;
 
 import fr.greta.java.ConnectionFactory;
+import fr.greta.java.box.persistence.BoxEntity;
 import fr.greta.java.generic.tools.JdbcTool;
 import fr.greta.java.generic.exception.RepositoryException;
 
@@ -13,9 +14,13 @@ import java.util.List;
 
 public class VehicleRepository {
 
+
     private final String SELECT_REQUEST = "SELECT id, brand, immatriculation FROM vehicle";
     private final String SELECT_REQUEST_WHERE_ID = SELECT_REQUEST + " WHERE id = ?";
-    private final String INSERT_REQUEST = "INSERT INTO vehicle (brand, immatriculation) VALUES (?, ?)";
+    private final String INSERT_REQUEST = "INSERT INTO vehicle (brand, immatriculation, user_id) VALUES (?, ?, ?)";
+    private  final String WHERE_ID = " WHERE id = ?";
+
+    private final String UPDATE_USER_REQUEST = "UPDATE vehicle SET user_id = ?" + WHERE_ID;
 
     private ConnectionFactory connectionFactory = new ConnectionFactory();
 
@@ -71,6 +76,7 @@ public class VehicleRepository {
             preparedStatement = conn.prepareStatement(INSERT_REQUEST, PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, entity.getBrand());
             preparedStatement.setString(2, entity.getImmatriculation());
+            preparedStatement.setInt(3, entity.getUserId());
             preparedStatement.executeUpdate();
 
             rs = preparedStatement.getGeneratedKeys();
@@ -80,6 +86,24 @@ public class VehicleRepository {
             return entity;
         } catch (SQLException | ClassNotFoundException e) {
             throw new RepositoryException("Erreur lors de l'execution de la requête:" + INSERT_REQUEST, e);
+        } finally {
+            JdbcTool.close(rs, preparedStatement, conn);
+        }
+    }
+
+    public VehicleEntity updateUser(VehicleEntity entity) throws RepositoryException {
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        try {
+            conn = connectionFactory.create();
+            preparedStatement = conn.prepareStatement(UPDATE_USER_REQUEST);
+            preparedStatement.setInt(1, entity.getUserId());
+            preparedStatement.setInt(2, entity.getId());
+            preparedStatement.executeUpdate();
+            return entity;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RepositoryException("Erreur lors de l'execution de la requête:" + UPDATE_USER_REQUEST, e);
         } finally {
             JdbcTool.close(rs, preparedStatement, conn);
         }

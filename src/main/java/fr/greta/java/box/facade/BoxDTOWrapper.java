@@ -22,7 +22,12 @@ public class BoxDTOWrapper {
         if(model.getVehicle() != null) {
             dto.setVehicleBrand(model.getVehicle().getBrand());
             dto.setVehicleImmatriculation(model.getVehicle().getImmatriculation());
+            if (model.getUser() != null) {
+                dto.setUserNom(model.getUser().getNom());
+                dto.setUserEmail(model.getUser().getEmail());
+            }
         }
+
         return dto;
     }
 }

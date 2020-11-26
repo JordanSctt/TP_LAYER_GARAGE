@@ -1,5 +1,6 @@
 package fr.greta.java.vehicle.domain;
 
+import fr.greta.java.user.domain.User;
 import fr.greta.java.vehicle.persistence.VehicleEntity;
 
 import java.util.ArrayList;
@@ -21,6 +22,9 @@ public class VehicleWrapper {
         entity.setId(model.getId());
         entity.setBrand(model.getBrand());
         entity.setImmatriculation(model.getImmatriculation());
+        if(model.getUser() != null) {
+            entity.setUserId(model.getUser().getId());
+        }
         return entity;
     }
 
@@ -29,6 +33,11 @@ public class VehicleWrapper {
         model.setId(entity.getId());
         model.setBrand(entity.getBrand());
         model.setImmatriculation(entity.getImmatriculation());
+        if(entity.getUserId() > 0) {
+            User user = new User();
+            user.setId(entity.getUserId());
+            model.setUser(user);
+        }
         return model;
     }
 }

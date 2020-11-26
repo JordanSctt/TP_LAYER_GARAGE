@@ -1,5 +1,6 @@
 package fr.greta.java.box.domain;
 
+import fr.greta.java.user.domain.User;
 import fr.greta.java.vehicle.domain.Vehicle;
 
 public class Box {
@@ -8,6 +9,7 @@ public class Box {
     private String label;
     private String secretKey;
     private Vehicle vehicle;
+    private User user;
 
     public void setId(int id) {
         this.id = id;
@@ -39,5 +41,13 @@ public class Box {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

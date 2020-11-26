@@ -7,6 +7,8 @@ import fr.greta.java.user.domain.User;
 import fr.greta.java.user.domain.UserService;
 import fr.greta.java.vehicle.domain.Vehicle;
 import fr.greta.java.vehicle.domain.VehicleService;
+import fr.greta.java.vehicle.domain.VehicleWrapper;
+import fr.greta.java.vehicle.persistence.VehicleRepository;
 
 import java.util.List;
 
@@ -19,12 +21,13 @@ public class BoxService {
     private VehicleService vehicleService = new VehicleService();
     private UserService userService = new UserService();
 
+
     public List<Box> findAllWithVehicle() throws ServiceException {
         try {
             List<Box> models = wrapper.fromEntities(repository.findAll());
             for(Box box : models) {
                 if(box.getVehicle() != null) {
-                    box.setVehicle(vehicleService.findById(box.getVehicle().getId()));
+                    box.setVehicle(vehicleService.findByIdWithUser(box.getVehicle().getId()));
                 }
             }
             return models;
