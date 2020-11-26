@@ -15,6 +15,10 @@
                 <input type="text" name="vehicle_brand" class="form-control">
             <label>Immatriculation</label>
                 <input type="text" name="vehicle_immatriculation" class="form-control">
+            <label>Nom proprietaire</label>
+                <input type="text" name="user_nom" class="form-control">
+            <label>Email proprietaire</label>
+                <input type="text" name="user_email" class="form-control">    
           </div>
           <button type="submit" class="btn btn-primary">Valider</button>
         </form>

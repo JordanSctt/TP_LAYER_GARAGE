@@ -3,6 +3,7 @@ package fr.greta.java.vehicle.persistence;
 public class VehicleEntity {
 
     private int id;
+    private int userId;
     private String brand;
     private String immatriculation;
 
@@ -13,6 +14,14 @@ public class VehicleEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setBrand(String brand) {

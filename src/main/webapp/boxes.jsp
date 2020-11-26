@@ -30,11 +30,12 @@
         </c:if>
         <h2>Etats des boxes</h2>
         <table class="table">
-          <thead>
+          <thead class="thead-dark">
             <tr>
               <th scope="col">Label</th>
               <th scope="col">Véhicules</th>
               <th scope="col">Immatriculation</th>
+              <th scope="col">Nom proprietaire</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>
@@ -44,6 +45,7 @@
                     <td><c:out value="${ box.label }" /></td>
                     <td><c:out value="${box.vehicleBrand}" /></td>
                     <td><c:out value="${box.vehicleImmatriculation}" /></td>
+                    <td><c:out value="${box.userNom}" /></td>
                     <td><a href="${pageContext.request.contextPath}/box/affect?box_id=<c:out value="${ box.id }" />"/>affecter<a/></td>
                 </tr>
             </c:forEach>

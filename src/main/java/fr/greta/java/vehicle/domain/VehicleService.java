@@ -24,7 +24,7 @@ public class VehicleService {
 
     public List<Vehicle> findAll() throws ServiceException {
         try {
-            return wrapper.toEntities(repository.findAll());
+            return wrapper.fromEntities(repository.findAll());
         } catch (RepositoryException e) {
             throw new ServiceException(e);
         }

@@ -8,15 +8,15 @@ import java.util.List;
 
 public class BoxWrapper {
 
-    public List<Box> toEntities(List<BoxEntity> entities) {
+    public List<Box> fromEntities(List<BoxEntity> entities) {
         List<Box> models = new ArrayList<>();
         for (BoxEntity entity : entities) {
-            models.add(toEntity(entity));
+            models.add(fromEntity(entity));
         }
         return models;
     }
 
-    public Box toEntity(BoxEntity entity) {
+    public Box fromEntity(BoxEntity entity) {
         Box model = new Box();
         model.setId(entity.getId());
         model.setLabel(entity.getLabel());

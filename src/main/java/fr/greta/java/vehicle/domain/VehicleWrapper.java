@@ -8,11 +8,10 @@ import java.util.List;
 public class VehicleWrapper {
 
 
-
-    public List<Vehicle> toEntities(List<VehicleEntity> entities) {
+    public List<Vehicle> fromEntities(List<VehicleEntity> entities) {
         List<Vehicle> models = new ArrayList<>();
         for (VehicleEntity entity : entities) {
-            models.add(toEntity(entity));
+            models.add(fromEntity(entity));
         }
         return models;
     }
