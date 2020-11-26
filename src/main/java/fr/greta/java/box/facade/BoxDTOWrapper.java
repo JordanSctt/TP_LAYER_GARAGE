@@ -27,7 +27,6 @@ public class BoxDTOWrapper {
                 dto.setUserEmail(model.getUser().getEmail());
             }
         }
-
         return dto;
     }
 }
