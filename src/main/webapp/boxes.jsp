@@ -35,7 +35,7 @@
               <th scope="col">Label</th>
               <th scope="col">Véhicules</th>
               <th scope="col">Immatriculation</th>
-              <th scope="col">Nom proprietaire</th>
+              <th scope="col">Nom du proprietaire</th>
               <th scope="col">Actions</th>
             </tr>
           </thead>

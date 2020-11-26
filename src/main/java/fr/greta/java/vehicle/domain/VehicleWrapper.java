@@ -17,17 +17,6 @@ public class VehicleWrapper {
         return models;
     }
 
-    public VehicleEntity toEntity(Vehicle model) {
-        VehicleEntity entity = new VehicleEntity();
-        entity.setId(model.getId());
-        entity.setBrand(model.getBrand());
-        entity.setImmatriculation(model.getImmatriculation());
-        if(model.getUser() != null) {
-            entity.setUserId(model.getUser().getId());
-        }
-        return entity;
-    }
-
     public Vehicle fromEntity(VehicleEntity entity) {
         Vehicle model = new Vehicle();
         model.setId(entity.getId());
@@ -40,4 +29,17 @@ public class VehicleWrapper {
         }
         return model;
     }
+
+    public VehicleEntity toEntity(Vehicle model) {
+        VehicleEntity entity = new VehicleEntity();
+        entity.setId(model.getId());
+        entity.setBrand(model.getBrand());
+        entity.setImmatriculation(model.getImmatriculation());
+        if(model.getUser() != null) {
+            entity.setUserId(model.getUser().getId());
+        }
+        return entity;
+    }
+
+
 }

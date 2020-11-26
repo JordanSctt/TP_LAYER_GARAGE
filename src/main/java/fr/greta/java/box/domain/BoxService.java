@@ -7,8 +7,6 @@ import fr.greta.java.user.domain.User;
 import fr.greta.java.user.domain.UserService;
 import fr.greta.java.vehicle.domain.Vehicle;
 import fr.greta.java.vehicle.domain.VehicleService;
-import fr.greta.java.vehicle.domain.VehicleWrapper;
-import fr.greta.java.vehicle.persistence.VehicleRepository;
 
 import java.util.List;
 
@@ -40,7 +38,7 @@ public class BoxService {
         try {
             vehicle.setUser(userService.create(user));
             box.setVehicle(vehicleService.create(vehicle));
-            repository.updateVehicle(wrapper.fromEntity(box));
+            repository.updateVehicle(wrapper.toEntity(box));
         } catch (RepositoryException e) {
             throw new ServiceException(e);
         }

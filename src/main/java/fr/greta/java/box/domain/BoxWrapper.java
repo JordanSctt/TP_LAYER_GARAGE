@@ -29,7 +29,7 @@ public class BoxWrapper {
         return model;
     }
 
-    public BoxEntity fromEntity(Box model) {
+    public BoxEntity toEntity(Box model) {
         BoxEntity entity = new BoxEntity();
         entity.setId(model.getId());
         entity.setLabel(model.getLabel());
