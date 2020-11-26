@@ -15,7 +15,7 @@ import java.util.List;
 public class VehicleRepository {
 
 
-    private final String SELECT_REQUEST = "SELECT id, brand, immatriculation FROM vehicle";
+    private final String SELECT_REQUEST = "SELECT id, brand, immatriculation, user_id FROM vehicle";
     private final String SELECT_REQUEST_WHERE_ID = SELECT_REQUEST + " WHERE id = ?";
     private final String INSERT_REQUEST = "INSERT INTO vehicle (brand, immatriculation, user_id) VALUES (?, ?, ?)";
     private  final String WHERE_ID = " WHERE id = ?";
@@ -114,6 +114,7 @@ public class VehicleRepository {
         entity.setId(resultSet.getInt("id"));
         entity.setBrand(resultSet.getString("brand"));
         entity.setImmatriculation(resultSet.getString("immatriculation"));
+        entity.setUserId(resultSet.getInt("user_id"));
         return entity;
     }
 
