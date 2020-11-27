@@ -10,10 +10,18 @@ import java.util.List;
 
 public class VehicleService {
 
-    private VehicleRepository repository = new VehicleRepository();
-    private VehicleWrapper wrapper = new VehicleWrapper();
+    private VehicleRepository repository;
+    private VehicleWrapper wrapper;
     private UserService userService = new UserService();
 
+    public VehicleService(VehicleRepository vehicleRepository, VehicleWrapper vehicleWrapper) {
+        repository = vehicleRepository;
+        wrapper = vehicleWrapper;
+    }
+
+    public VehicleService() {
+        this(new VehicleRepository(), new VehicleWrapper());
+    }
 
     public Vehicle findByIdWithUser(int id) throws ServiceException {
         try {

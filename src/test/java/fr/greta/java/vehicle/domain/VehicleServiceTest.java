@@ -21,6 +21,7 @@ public class VehicleServiceTest {
     public void callRepoCreateWhenVehicleIsValid () throws ServiceException, RepositoryException {
         Vehicle vehicle = mock(Vehicle.class);
         when(vehicle.brandIsValid()).thenReturn(true);
+        when(vehicle.immatIsValid()).thenReturn(true);
 
         VehicleEntity vehicleEntity = new VehicleEntity();
         when(vehicleWrapper.toEntity(vehicle)).thenReturn(vehicleEntity);
@@ -33,9 +34,7 @@ public class VehicleServiceTest {
     public void NeverCallRepoCreateWhenVehicleIsNotValid () throws RepositoryException {
         Vehicle vehicle = mock(Vehicle.class);
         when(vehicle.brandIsValid()).thenReturn(false);
-
-        VehicleEntity vehicleEntity = new VehicleEntity();
-        when(vehicleWrapper.toEntity(vehicle)).thenReturn(vehicleEntity);
+        when(vehicle.immatIsValid()).thenReturn(false);
 
         try {
             vehicleService.create(vehicle);
