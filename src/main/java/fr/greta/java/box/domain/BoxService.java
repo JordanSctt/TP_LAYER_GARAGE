@@ -53,4 +53,8 @@ public class BoxService {
     }
 
 
+    public Box clear(int boxId) {
+
+        return null;
+    }
 }

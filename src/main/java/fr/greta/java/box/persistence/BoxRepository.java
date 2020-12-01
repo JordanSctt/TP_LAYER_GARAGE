@@ -4,10 +4,7 @@ import fr.greta.java.ConnectionFactory;
 import fr.greta.java.generic.tools.JdbcTool;
 import fr.greta.java.generic.exception.RepositoryException;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,6 +80,26 @@ public class BoxRepository {
             JdbcTool.close(rs, preparedStatement, conn);
         }
     }
+
+    public BoxEntity removeVehicle(BoxEntity entity) throws RepositoryException {
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        try {
+            conn = connectionFactory.create();
+            preparedStatement = conn.prepareStatement(UPDATE_VEHICLE_REQUEST);
+            preparedStatement.setNull(1, Types.NULL);
+            preparedStatement.setInt(2, entity.getId());
+            preparedStatement.executeUpdate();
+            return entity;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RepositoryException("Erreur lors de l'execution de la requête:" + UPDATE_VEHICLE_REQUEST, e);
+        } finally {
+            JdbcTool.close(rs, preparedStatement, conn);
+        }
+    }
+
+
 
     private BoxEntity toEntity(ResultSet resultSet) throws SQLException {
         BoxEntity entity = new BoxEntity();
